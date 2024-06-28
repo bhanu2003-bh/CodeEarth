@@ -1,0 +1,112 @@
+*{
+padding: 0px;
+margin: 0px;
+
+}
+.head{
+    height: 60px;
+    width: 99.8%;
+    color: white;
+    display: block;
+    position: fixed;
+}
+
+.logo{
+    display: inline-block;
+    font-family: serif;
+    margin: 10px;
+    width: 20%;
+}
+
+.store1{
+    display: inline-block;
+    height: 100%;
+    width: 300px;
+
+}
+.mode{
+    height: 50%;
+    width: 80px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.mode:hover{
+    box-shadow: 1px 1px 2px white;
+  }
+
+.store2{
+    display: inline-block;
+    height: 100%;
+    width: 400px;
+}
+.run1{
+    height: 60%;
+    width: 130px;
+    border-radius: 20px;
+    font-size:medium;
+    font-family: serif;
+    border: 0px;
+    margin-right: 5px;
+}
+
+
+.run2{
+    height: 60%;
+    width: 130px;
+    border-radius: 20px;
+    font-size:medium;
+    font-family: serif;
+    border: 0px;
+}
+
+.run1:hover{
+   cursor: pointer;
+    box-shadow: 1px 1px 2px white;  
+}
+.run2:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 2px white;
+  }
+
+.level{
+    display: inline-block;
+    width: 200px;
+}
+
+.tags{
+    display: inline-block;
+    font-family: serif;
+}
+
+.nextprev{
+    display: inline-block;
+    height: 70%;
+  
+}
+
+.prev{
+    height: 80%;
+    width: 130px;
+    border-radius: 20px;
+    font-size:medium;
+    font-family: serif;
+    border: 0px;
+    margin: 20px;
+}
+.prev:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 2px white;
+  }
+.next{
+    height: 80%;
+    width: 130px;
+    border-radius: 20px;
+    font-size:medium;
+    font-family: serif;
+    border: 0px;
+}
+.next:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 2px white;
+  }

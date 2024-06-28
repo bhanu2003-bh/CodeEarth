@@ -1,0 +1,109 @@
+.seminav{
+    height: 40px;
+    width: 100%;
+    color: white;
+    display: block;
+    position: fixed;
+    top: 60px;
+    background-color: #06060f;
+}
+.seminav a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #898989;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 10px;
+  margin: 0 30px;
+  position: relative;
+  outline: none; /* Optional: Removes the default outline when the link is focused */
+}
+
+.seminav a:hover,
+.seminav a:focus {
+  color: #fff;
+}
+
+.seminav a::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #ee0653;
+  transition: all .5s;
+}
+
+.seminav a:hover::before,
+.seminav a:focus::before {
+  width: 100%;
+}
+
+.custom-select{
+    display: inline-block;
+    margin-left: 10%;
+    margin-right: 27%;
+    cursor: pointer;
+}
+
+
+
+
+select.languge {
+    background-color: #37373E; 
+     border: 1px solid #06060f;
+    color: white; 
+    padding: 5px; 
+    border-radius: 7px;
+    cursor: pointer; 
+  }
+
+  .languge:hover{
+    box-shadow: 1px 1px 2px white;
+  }
+  
+
+  select.languge option {
+    background-color: #37373E; 
+    color: white; 
+  }
+  
+  select.language optgroup{
+    background-color: black;
+  }
+
+  .tooltip{
+    display: inline-block;
+    width: 70px;
+    height: 60%;
+    border-radius: 5px;
+    background-color: #E2DFD2;
+    cursor: pointer;
+    position: relative;
+  }
+  .tooltip:hover{
+    background-color: gray;
+    border: 2px gold solid;
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color:  #ee0653;
+    color: white;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

@@ -1,0 +1,39 @@
+.Body{
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    position: fixed;
+    flex-wrap: wrap;
+    flex-direction: row;
+    top: 100px;
+    background-color: #0c0c1d;
+}
+
+.left{
+    width: 45%;
+    background-color: #0c0c1d;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: auto;
+     height: 85%;
+     
+}
+
+.middle{
+    width: 3%;
+    background-color: #15132f;
+   
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.right{
+    width: 52%;
+    background-color: #131f2f;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

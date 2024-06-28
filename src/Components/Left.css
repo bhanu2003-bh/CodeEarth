@@ -1,0 +1,130 @@
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+}
+.left-container {
+    height: 100vh;
+    overflow: auto;
+   padding-top: 40px;
+   padding-left: 20px;
+   padding-right: 20px;
+   color: #898989;
+}
+
+.name{
+    margin-bottom: 20px;
+}
+
+.description{
+    width: 100%;
+}
+.description-para {
+    width: 100%;
+    white-space: pre-wrap; /* Allows wrapping of text */
+    overflow-x: auto; /* Enables horizontal scrolling if needed */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: cursive; */
+}
+
+.example{
+    color: #B2BEB5;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top:10px ;
+    margin-bottom: 10px;
+}
+
+.example h1{
+    color: white;
+}
+
+.examples{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.constraints{
+    padding-left: 20px;
+    color: #B2BEB5;
+    margin-bottom: 30px;
+}
+
+.collapsible{
+    max-width: 450px;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.collapsible input{
+    display: none;
+}
+
+.collapsible label{
+    position: relative;
+    font-weight: 600;
+    background-color: #fff;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.1) 0 4px 11px 0 rgba(0,0,0,.08);
+   color: #1c1c6b;
+   display: block;
+   margin-bottom: 10px;
+   cursor: pointer;
+   padding: 15px;
+   border-radius: 4px;
+   z-index: 1;
+}
+
+.collapsible label::after{
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 18px;
+    height: 18px;
+    /* background: url(arrow.svg) no-repeat 0 0; */
+    transition: all 0.3s ease;
+}
+
+.collapsible input:checked + label:after{
+transform: rotate(90deg);
+}
+
+.collapsible-text{
+    max-height: 1px;
+    overflow: hidden;
+    border-radius: 4px;
+    line-height: 1.4;
+    position: relative;
+    top : -100%;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.collapsible input:checked ~ .collapsible-text{
+    max-height: 300px;
+    padding-bottom: 25px;
+    background: #fff;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.1) 0 4px 11px 0 rgba(0,0,0,.08);
+    opacity: 1;
+    top: 0;
+}
+
+.collapsible-text{
+ margin-bottom: 10px;
+ padding: 15px 15px 0;
+ color: #1c1c6b;   
+}
+
+.collapsible-text p{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.problem-profile span{
+    color: #ee0653;
+}
+
+.problem-profile h4{
+    color: white;
+}
