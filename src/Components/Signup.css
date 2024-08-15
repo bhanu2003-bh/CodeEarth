@@ -1,0 +1,39 @@
+.Signup{
+    cursor: pointer;
+    color: black;
+    width: 700px;
+    height: 600px;
+    background-color: whitesmoke;
+    border-radius: 6%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;  
+    gap: 20px;  
+}
+
+
+.signup-input{
+    width: 40%;
+    height: 6%;
+    background-color: #d3d3d3;
+    border: 0px;
+    border-radius: 5px;
+    padding-left:4px ;
+}
+
+.signup-submit{
+    width: 40%;
+    height: 6%;
+    color: white;
+    background-color: #63e;
+}
+
+.Signup-logi{
+    display: inline-block;
+    color: #63e;
+}
+
+.signup-show{
+    display: inline-block;
+}

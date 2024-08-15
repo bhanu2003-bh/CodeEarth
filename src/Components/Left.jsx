@@ -1,6 +1,12 @@
 import "./Left.css";
-import Problem from "../Data/Problem1";
+import UserContext from "../Context/UserContext";
+import { useContext } from "react";
+
 export default function Left() {
+
+const {Problem} = useContext(UserContext);
+
+
   return (
     <div className="left-container">
       <h1 className="name">
