@@ -5,7 +5,7 @@ import { CODE_SNIPPETS } from "../Piston/LanguageVersion";
 import './Right.css'
 export default function Right() {
     
-  const {dark,data,setdata,lang} = useContext(UserContext);
+  const {dark,data,setdata,lang,finalcolotest,testcase} = useContext(UserContext);
     
   useEffect(()=>{
     setdata(CODE_SNIPPETS[lang]);
@@ -23,11 +23,11 @@ export default function Right() {
         value={data}
       />
       <div className="runtestcase">
-        <button className="btn">TestCase 1</button>
-        <button className="btn">TestCase 2</button>
-        <button className="btn">TestCase 3</button>
-        <button className="btn">TestCase 4</button>
-        <button className="btn">TestCase 5</button>
+        <button className="btn" style={{backgroundColor:finalcolotest[0]}}>{testcase[0]}</button>
+        <button className="btn" style={{backgroundColor:finalcolotest[1]}}>{testcase[1]}</button>
+        <button className="btn" style={{backgroundColor:finalcolotest[2]}}>{testcase[2]}</button>
+        <button className="btn" style={{backgroundColor:finalcolotest[3]}}>{testcase[3]}</button>
+        <button className="btn" style={{backgroundColor:finalcolotest[4]}}>{testcase[4]}</button>
       </div>
     </div>
   );

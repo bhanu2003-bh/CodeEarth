@@ -1,5 +1,5 @@
 // Form.jsx
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css'; // Import CSS for styling
 
@@ -75,7 +75,7 @@ function Form() {
       };
       console.log(submittedData);
 
-       navigate('/');      
+      //  navigate('/');      
     }
   };
 

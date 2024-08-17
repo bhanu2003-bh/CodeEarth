@@ -1,0 +1,89 @@
+/* Full-width and full-height container with overflow handling */
+.profile-container {
+    background-color: #1c1c6b;
+    color: #ffffff;
+    padding: 30px;
+    width: 96%;
+    height: 91vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  
+  .profile-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-username {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .profile-rank {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .logout-button {
+    background-color: #ff6347;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .logout-button:hover {
+    background-color: #ff4500;
+  }
+  
+  /* Problem Solved section with a different background color */
+  .profile-stats {
+    background-color: #2c2c7b; /* Different background color for the stats section */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  
+  .profile-stats table {
+    color: #ffffff;
+    font-size: 20px;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .profile-stats td {
+    padding: 10px 20px;
+  }
+  
+  /* Social links styling */
+  .profile-links {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+  }
+  
+  .profile-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+  }
+  
+  .profile-links a:hover {
+    text-decoration: underline;
+  }
+  

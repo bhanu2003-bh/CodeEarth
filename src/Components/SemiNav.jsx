@@ -5,9 +5,10 @@ import { useContext } from "react";
 
 export default function SemiNav() {
 
-    const {lang,data,setdata,setlang} = useContext(UserContext);
+    const {lang,data,setdata,setlang,setfinalcolotest} = useContext(UserContext);
    
 function handleMe(e){
+  setfinalcolotest(['white','white','white','white','white']);
 setlang(e.target.value);
 }
 
