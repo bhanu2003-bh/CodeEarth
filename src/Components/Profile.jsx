@@ -1,12 +1,25 @@
+import { useEffect } from 'react';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 const navigate = useNavigate();
+
+
+useEffect(()=>{
+  if(localStorage.cookies!=document.cookie) navigate('/login');
+
+   
+
+
+},[])
+
 function Logout(){
    document.cookie = null;
     navigate('/login')
 }
+
+
 
   return (
     <div className="profile-container">

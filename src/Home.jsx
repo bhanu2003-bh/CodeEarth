@@ -1,26 +1,75 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "./Context/UserContext";
 import './Home.css';
+import axios from "axios";
 
 function Home() {
+
+  const {setrun_inputs,setrun_outputs,setProblem} = useContext(UserContext);
+
   const navigate = useNavigate();
   const [data, setData] = useState([]);
 
+
+
+  function parseJSONString(str) {
+    // Split the string using the delimiter between JSON objects
+    let jsonObjects = str.split(/\}\s*\{/).map((obj, index, arr) => {
+      // Add braces that were removed by split
+      if (index > 0) obj = `{${obj}`;
+      if (index < arr.length - 1) obj = `${obj}}`;
+  
+      // Parse the JSON object
+      return JSON.parse(obj);
+    });
+  
+    return jsonObjects;
+  }
+
+
   useEffect(() => {
-    const problems = [
-      { name: 'Hello World', Description: 'Write Hello World Program', Accepted: '99' },
-      { name: 'Calculator', Description: 'Write Calculator Program', Accepted: '101' },
-      { name: 'Palindrome Checker', Description: 'Check if a word is a palindrome', Accepted: '89' },
-      { name: 'Sorting Algorithm', Description: 'Implement a sorting algorithm', Accepted: '150' },
-      { name: 'Prime Number Generator', Description: 'Generate prime numbers', Accepted: '75' },
-      { name: 'Hello World', Description: 'Write Hello World Program', Accepted: '99' },
-      { name: 'Calculator', Description: 'Write Calculator Program', Accepted: '101' },
-      { name: 'Palindrome Checker', Description: 'Check if a word is a palindrome', Accepted: '89' },
-      { name: 'Sorting Algorithm', Description: 'Implement a sorting algorithm', Accepted: '150' },
-      { name: 'Prime Number Generator', Description: 'Generate prime numbers', Accepted: '75' }
-    ];
-    setData(problems);
+    if(localStorage.cookies!=document.cookie) navigate('/login')
+    const fetchData = async () => {
+      try {
+        const obj = {
+          cookie: document.cookie,
+        };
+
+        const response = await axios.post('http://localhost:8000/problem/get', obj);
+
+          // For debugging, log the response data
+        setData(response.data); // Set the data to state
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+
+
+  function Problemnavigate(e,item){
+    e.preventDefault();
+  
+      item.example = parseJSONString(item.example);
+       item.Constraints =   item.Constraints.split(',').map(item => item.trim());
+       item.topics = item.topics.split(/[\s,]+/) 
+       .filter(word => word.length > 0) 
+       .map(word => word.split(' ')[0]);
+
+
+       console.log(item);
+     
+
+      setrun_inputs(item.run_inputs);
+      setrun_outputs(item.run_outputs);
+      setProblem(item);
+
+    navigate(`/problem/${item.number}`)
+  }
 
   return (
     <div className="problems">
@@ -36,14 +85,14 @@ function Home() {
         <div className="problem-item" style={{ background: '#808080', color: "white" }}>
           Number
           <a href="#" style={{ color: "white" }}>Name</a>
-          Accepted
+          Level
         </div>
         {data.map((item, index) => (
           <li key={index}>
             <div className="problem-item">
               {index}
-              <a href="#" onClick={() => navigate(`/problem/${item.id}`)}>{item.name}</a>
-              {item.Accepted}
+              <a href="" onClick={(e) => Problemnavigate(e, item)}>{item.name}</a>
+              {item.level}
             </div>
           </li>
         ))}

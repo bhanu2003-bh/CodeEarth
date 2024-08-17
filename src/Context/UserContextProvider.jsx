@@ -7,12 +7,12 @@ function UserContextProvider ({children}){
     const [data, setdata] = useState("");
     const [dark,setdark] = useState(true);
     const [lang,setlang] = useState('cpp');
-    const run_inputs = ["42","-042","1337c0d3","0-1","words and 987"];
-    const run_outputs  = ['Hello World','Hello World','Hello World','Hello World',0];
+    const  [run_inputs,setrun_inputs] = useState(["42","-042","1337c0d3","0-1","words and 987"]);
+    const [run_outputs,setrun_outputs]  = useState(['Hello World','Hello World','Hello World','Hello World',0]);
     const [finalcolotest,setfinalcolotest] = useState(['white','white','white','white','white']);
     const [testcase,settestcase] = useState(['TestCase 1','TestCase 2','TestCase 3','TestCase 4','TestCase 5']);
     const counter = 0;
-    const Problem = {
+    const [Problem,setProblem]  = useState({
         number : 1,
         name : "String to Integer (atoi)",
         level : "Medium",
@@ -65,10 +65,11 @@ function UserContextProvider ({children}){
         
         
         }
+    );
     return(
     <UserContext.Provider value={{data,setdata,dark,setdark,lang,setlang,
     run_inputs,run_outputs,Problem,counter,setfinalcolotest,finalcolotest
-    ,testcase,settestcase
+    ,testcase,settestcase,setProblem,setrun_inputs,setrun_outputs
     }}>
         {children}
     </UserContext.Provider>

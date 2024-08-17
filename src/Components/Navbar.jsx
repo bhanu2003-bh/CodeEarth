@@ -42,7 +42,7 @@ function Navbar() {
     for (const items of run_inputs) { 
       try {
         const version = getVersionForLanguage(lang);
-        console.log(`Using version ${version} for ${lang}`);
+
         
         const response = await axios.post('https://emkc.org/api/v2/piston/execute', {
           language: lang,

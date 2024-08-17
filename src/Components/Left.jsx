@@ -1,10 +1,13 @@
 import "./Left.css";
 import UserContext from "../Context/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Left() {
-
+const location = useLocation();
 const {Problem} = useContext(UserContext);
+
+
 
 
   return (
@@ -28,11 +31,11 @@ const {Problem} = useContext(UserContext);
               <br></br>
               <pre>
                 <b style={{ color: "white" }}>Input: </b>
-                {item.Input}
+                {item.input}
               </pre>
               <pre>
                 <b style={{ color: "white" }}>Output: </b>
-                {item.Output}
+                {item.output}
               </pre>
               <br></br>
             </pre>

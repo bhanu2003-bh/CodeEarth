@@ -1,8 +1,8 @@
 // Form.jsx
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Form.css'; // Import CSS for styling
-
+import axios from 'axios'
 // Define the keys of the Problem object as fields
 const fields = {
   number: 'Number',
@@ -12,11 +12,16 @@ const fields = {
   example: 'Example (JSON format)',
   Constraints: 'Constraints (Comma-separated)',
   topics: 'Topics (Comma-separated)',
-  code: 'Code (Large Input)',
+  code: 'Code (Optional to upload) ',
   testCases: 'Test Cases'
 };
 
 function Form() {
+
+useEffect(()=>{
+  if(localStorage.cookies!=document.cookie) navigate('/login')
+})
+
     const navigate = useNavigate();
   const [formData, setFormData] = useState({
     number: '',
@@ -63,7 +68,7 @@ function Form() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (validateForm()) {
       // Add default values to formData if not provided
@@ -73,9 +78,34 @@ function Form() {
         Submissions: formData.Submissions || 0,
         Acceptance_Rate: formData.Acceptance_Rate || 0
       };
-      console.log(submittedData);
+      let inputs  = [];
+      let outputs = [];
+      for(let item of submittedData.testCases){
+        inputs.push(item.input);
+        outputs.push(item.output);
+      }
+      const obj = {
+        number : submittedData.number,
+        name : submittedData.name,
+        level : submittedData.level,
+        example : submittedData.example,
+        Constraints : submittedData.Constraints,
+        topics : submittedData.topics,
+        run_inputs : inputs,
+        run_outputs : outputs,
+        description : submittedData.description,
+        cookie : document.cookie
+      }
+     
+      try {
+       const response = await axios.post('http://localhost:8000/problem',obj);
+        console.log('Success response from Problem Submission ',response);
+      } catch (error) {
+        console.log('Error Message After Problem Submission',error);
+      }
+     
 
-      //  navigate('/');      
+       navigate('/');      
     }
   };
 
@@ -92,7 +122,7 @@ function Form() {
                 </label>
                 {formData.testCases.map((testCase, index) => (
                   <div key={index} className="test-case">
-                    <input
+                    <textarea
                       type="text"
                       value={testCase.input}
                       onChange={(e) => handleTestCaseChange(e, index, 'input')}
@@ -100,7 +130,7 @@ function Form() {
                       className={errors[`input_${index}`] ? 'error' : ''}
                     />
                     <span className="error-message">{errors[`input_${index}`]}</span>
-                    <input
+                    <textarea
                       type="text"
                       value={testCase.output}
                       onChange={(e) => handleTestCaseChange(e, index, 'output')}
